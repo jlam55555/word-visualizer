@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>TheHomeworkLife Word</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.5/angular.min.js"></script>
+    <script src="script.js"></script>
+    <link rel="stylesheet" type="text/css" href="style.css" />
+    <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Montserrat" />
+  </head>
+  <body>
+    <a id="thehomeworklifelogosnippet" href="http://www.thehomeworklife.co.nf" target="_blank"><img id="snippetlogo" title="A work of TheHomeworkLife" src="http://s16.postimg.org/umt8ui8fl/thl_touch_icon.png"><style>a#thehomeworklifelogosnippet>img#snippetlogo{cursor: pointer;width:32px;height:32px;position:fixed;bottom:16px;left:16px;z-index:100;border-radius:32px;box-shadow:0 0 10px #888888;transition:all .5s;opacity:1}a#thehomeworklifelogosnippet>img#snippetlogo:hover{box-shadow:0 0 10px black}</style></a>
+    <div id="word">
+      <canvas></canvas>
+    </div>
+    <div id="settings" ng-app="app" ng-controller="MainController">
+      <table>
+        <tbody>
+          <tr>
+            <td>
+              Font Size
+            </td>
+            <td>
+              <input type="range" min="1" max="500" ng-model="ui.fontHeight" />
+              <span class="rangeData">{{ ui.fontHeight }}</span>
+              <input type="button" ng-click="autoSize()" value="Autosize" />
+            </td>
+          </tr>
+          <tr>
+            <td>
+              Text
+            </td>
+            <td>
+              <input type="text" ng-model="ui.word" />
+            </td>
+          </tr>
+          <tr>
+            <td>
+              Brighten By
+            </td>
+            <td>
+              <input type="range" min="0" max="255" ng-model="ui.brightenBy "/>
+              <span class="rangeData">{{ ui.brightenBy }}</span>
+            </td>
+          </tr>
+          <tr>
+            <td>
+              Styles
+            </td>
+            <td>
+              <strong>bold</strong> <input type="checkbox" ng-model="ui.bold" />
+              <em>italic</em> <input type="checkbox" ng-model="ui.italic" />
+            </td>
+          </tr>
+          <tr>
+            <td>
+              Font Family
+            </td>
+            <td>
+              <input type="text" ng-model="ui.fontFamily" />
+            </td>
+          </tr>
+          <tr>
+            <td>
+              Width
+            </td>
+            <td>
+              <input type="range" min="10" max="1024" ng-model="ui.width" />
+              <span class="rangeData">{{ ui.width }}</span>
+            </td>
+          </tr>
+          <tr>
+            <td>
+              Height
+            </td>
+            <td>
+              <input type="range" min="10" max="1024" ng-model="ui.height" />
+              <span class="rangeData">{{ ui.height }}</span>
+            </td>
+          </tr>
+          <tr>
+            <td>
+              Colors
+            </td>
+            <td>
+              <table>
+                <tr ng-repeat="color in ui.colors">
+                  <td>
+                    <span class="colorText">{{ color }}</span>
+                  </td>
+                  <td>
+                    <div class="color" ng-style="{'background-color': color}"></div>
+                  </td>
+                  <td>
+                    <input type="button" ng-click="removeColor($index)" value="Remove" />
+                  </td>
+                </tr>
+                <tr>
+                  <td>
+                    <input type="text" ng-model="newColor" maxlength="6" />
+                  </td>
+                  <td>
+                    <div class="color" ng-style="{'background-color': '#' + newColor}"></div>
+                  </td>
+                  <td>
+                    <input type="button" value="Add" ng-click="addColor()" />
+                  </td>
+                </tr>
+              </table>
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <input type="button" ng-click="reset()" value="Reset" />
+            </td>
+            <td>
+            <a id="downloadButton" href="" ng-click="download()">Download</a>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </head>
+</html>

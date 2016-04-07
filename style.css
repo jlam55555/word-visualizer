@@ -1,0 +1,90 @@
+* {
+  box-sizing: border-box;
+}
+body, html {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+  font-size: 14px;
+  font-family: montserrat
+}
+div#word, div#settings {
+  float: left;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  align-content: center;
+}
+div#word {
+  width: calc(100% - 400px);
+  position: relative;
+  background-color: #cccccc;
+  overflow: auto;
+}
+div#word > canvas {
+  background-image: url(transparentBackground.png);
+}
+div#settings {
+  width: 400px;
+}
+div#settings > table {
+  border-collapse: collapse;
+  width: 100%;
+}
+div#settings > table > tbody > tr:nth-child(even) {
+  background-color: #eeeeee;
+}
+div#settings > table > tbody > tr > td {
+  padding: 10px;
+}
+div#settings span.rangeData {
+  float: left;
+  display: inline-block;
+  width: 50px;
+  text-align: center;
+}
+input[type=range] {
+  width: calc(100% - 50px);
+  display: inline-block;
+  float: left;
+  font-family: inherit;
+  margin: 0;
+}
+input[type=button], a#downloadButton {
+  text-decoration: none;
+  color: inherit;
+  border: none;
+}
+input[type=text] {
+  border: none;
+}
+input:not([type=range]):not([type=checkbox]), a#downloadButton {
+  outline: none;
+  width: 100%;
+  display: inline-block;
+  font-family: inherit;
+  font-size: inherit;
+  border-radius: 5px;
+  padding: 5px;
+  text-align: center;
+  cursor: pointer;
+  background-color: rgba(0, 0, 0, 0.1);
+  transition: all .2s;
+}
+input:not([type=range]):not([type=checkbox]):hover, a#downloadButton:hover {
+  background-color: rgba(0, 0, 0, 0.2);
+}
+input[type=text]:focus {
+  background-color: transparent;
+}
+div.color {
+  width: 10px;
+  height: 10px;
+  border-radius: 5px;
+}
+span.colorText {
+  display: block;
+  width: 100%;
+  text-align: center;
+}
